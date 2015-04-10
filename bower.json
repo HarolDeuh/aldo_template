@@ -1,0 +1,13 @@
+{
+  "name": "aldo_template",
+  "version": "0.0.1",
+  "authors": [
+    "haroldeuh"
+  ],
+  "description": "start new project with gulp jade stylus jquery",
+  "main": "index.html",
+  "license": "MIT",
+  "devDependencies": {
+    "jquery": "~2.1.3"
+  }
+}
