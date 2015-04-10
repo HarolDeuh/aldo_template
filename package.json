@@ -1,8 +1,8 @@
 {
   "name": "Aldo_template",
   "version": "1.0.0",
-  "description": "parallax tutorial devtips",
-  "main": "main.html",
+  "description": "start new project with gulp jade stylus jquery",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
