@@ -36,10 +36,9 @@ gulp.task('connect', function() {
 
 gulp.task('js', function() {
   gulp.src([
-    'source/js/jquery.js',
-    'source/js/main.js'
+    'source/js/*.js'
   ])
-    .pipe( concat('functions.js') ) // concat pulls all our files together before minifying them
+    .pipe( concat('functions.js') ) //Tous les fichiers sont concaténé avant d'être minifié
     .pipe(uglify())
     .pipe(gulp.dest('build'))
 });
