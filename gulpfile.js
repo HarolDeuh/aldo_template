@@ -13,13 +13,29 @@ gulp.task('css', function () {
     gulp.src('source/stylus/main.styl')
         .pipe(stylus({compress: false, paths: ['source/stylus']}))
         .pipe(autoprefixer())
-        //.pipe(minifyCSS())
+        .pipe(rename('style.css'))
+        .pipe(gulp.dest('build'))
+        .pipe(connect.reload())
+});
+
+gulp.task('uglycss', function () {
+    gulp.src('source/stylus/main.styl')
+        .pipe(stylus({compress: false, paths: ['source/stylus']}))
+        .pipe(autoprefixer())
+        .pipe(minifyCSS())
         .pipe(rename('style.css'))
         .pipe(gulp.dest('build'))
         .pipe(connect.reload())
 });
 
 gulp.task('html', function() {
+  gulp.src('source/jade/main.jade')
+    .pipe(jade({pretty:true}))
+    .pipe(gulp.dest('build'))
+    .pipe(connect.reload())
+});
+
+gulp.task('uglyhtml', function() {
   gulp.src('source/jade/main.jade')
     .pipe(jade())
     .pipe(gulp.dest('build'))
@@ -49,5 +65,6 @@ gulp.task('watch', function () {
    gulp.watch('source/js/*.js', ['js']);
 });
 
+gulp.task('garbage', ['uglycss','uglyhtml','js']);
 gulp.task('default', ['css', 'html', 'js']);
 gulp.task('start', ['connect', 'watch']);
